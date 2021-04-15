@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -16,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Java反射基本用法 - 打不倒的怪兽</title>
+  <title>Archive: 2021/4 - 打不倒的怪兽</title>
   
 
   
@@ -324,7 +326,7 @@
 
   
   
-      <div class='cover-wrapper post search' style="display: none;">
+      <div class='cover-wrapper  search' style="display: none;">
         
           <div class='cover-backstretch'></div>
         
@@ -412,8 +414,8 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">true</div>
-  <div id="pjax-pageTitle">Java反射基本用法</div>
+  <div id="pjax-ispage">false</div>
+  <div id="pjax-pageTitle"></div>
   <div id="pjax-enable-cover">true</div>
   <div id="pjax-comment-path">none</div>
   <div id="pjax-comment-placeholder">none</div>
@@ -443,327 +445,214 @@
         
 
 <div class='l_main'>
-  
-
-  
-    <article id="post" class="post white-box reveal md shadow article-type-post" itemscope itemprop="blogPost">
-      
-
-
-  <div class='article-header'>
+	
+		
+  <section class="post-list ">
     
       
-      <div class="article-meta" id="top">
         
+          
         
+          
         
-          <h1 class="title">
-            <a href="/blog/2020/09/22/%E5%9F%BA%E6%9C%AC%E5%8F%8D%E5%B0%84/">
-              Java反射基本用法
-            </a>
-          </h1>
+      
+    
+    
+      
         
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>打不倒的怪兽</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020-09-22 12:00</p>
-  </a>
-</div>
-
-            
-          
-            
-          
-        </div>
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/04/15/dubbo/">
+        springboot+dubbo
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        SpringBoot+Dubbo (Rpc框架)1.概述 Apache Dubbo是一个基于Java的高性能开源RPC框架 。
+​     官方网站：https://dubbo.apache.org/zh/     
+  GitHub : https://github.com/apache/dubbo
+demo项目以及工具拉取地址
+码云gitee ： https://gitee.com/lu...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        <time>2021-04-15</time>
+        
       </div>
-    
-  </div>
-
-
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <h5 id="简述："><a href="#简述：" class="headerlink" title="简述："></a>简述：</h5><p>​     Java中的反射机制允许程序在JVM的运行期动态加载类，创建类对象，调用类的成员变量，执行的成员方法。</p>
-<h5 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h5><h6 id="获取类的class对象"><a href="#获取类的class对象" class="headerlink" title="获取类的class对象"></a>获取类的class对象</h6><p>1.通过类名来获取Class实例对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = Student.class;</span><br></pre></td></tr></table></figure>
-
-<p>2.通过类对象来获取Class实例对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student stu = <span class="keyword">new</span> Student();</span><br><span class="line">Class cls = stu.getClass();</span><br></pre></td></tr></table></figure>
-
-<p>3.通过类路径来获取Class实例对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = Class.forName(<span class="string">&quot;com.yumodev.java.entry.Student&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h6 id="基本使用方法"><a href="#基本使用方法" class="headerlink" title="基本使用方法"></a>基本使用方法</h6><p>1.获取对象的构造方法 通过 Class 类的 getConstructors() 方法来获取</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取到Class实例</span></span><br><span class="line">Class cls = Student.class;</span><br><span class="line"><span class="comment">//获取到Student类的所有构造方法</span></span><br><span class="line">Constructor[] constructors = cls.getConstructors();</span><br><span class="line"><span class="comment">//输出构造方法</span></span><br><span class="line"><span class="keyword">for</span> (Constructor constructor : constructors)&#123;</span><br><span class="line">   System.out.println(constructor.toString());        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="1-getConstructor（）"><a href="#1-getConstructor（）" class="headerlink" title="1.getConstructor（）"></a>1.<strong>getConstructor（）</strong></h6><p>可以传入相应类型的参数，获取指定类型的构造方法 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取到Class实例</span></span><br><span class="line">Class cls = Student.class;</span><br><span class="line"><span class="comment">//获取到指定</span></span><br><span class="line">Constructor constructors =cls.getConstructor(String.class,<span class="keyword">double</span>.class);</span><br><span class="line">System.out.println(constructors);</span><br></pre></td></tr></table></figure>
-
-<h6 id="2-newInstance"><a href="#2-newInstance" class="headerlink" title="2.newInstance()"></a>2.<strong>newInstance()</strong></h6><p>2.通过构造方法生产类的实例 <strong>newInstance()</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取到Class实例</span></span><br><span class="line">Class cls = Student.class;</span><br><span class="line"><span class="comment">//指定构造方法 并且获取到构造方法</span></span><br><span class="line">Constructor constructor = cls.getConstructor(String.class,<span class="keyword">double</span>.class);</span><br><span class="line"><span class="comment">//通过 newInstance() 传入参数获取实例</span></span><br><span class="line">Student student = (Student)constructor.newInstance(<span class="string">&quot;小明&quot;</span>,<span class="number">12.5</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;创建的实例:&quot;</span> + student);</span><br></pre></td></tr></table></figure>
-
-<h6 id="3-执行类的方法-invoke"><a href="#3-执行类的方法-invoke" class="headerlink" title="3.执行类的方法  invoke()"></a>3.执行类的方法  <strong>invoke()</strong></h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取到Class实例</span></span><br><span class="line">Student student = <span class="keyword">new</span> Student();</span><br><span class="line"><span class="comment">//指定要执行的方法 参数1:方法名 参数2：参数类型</span></span><br><span class="line">Method method = student.getClass().getMethod(<span class="string">&quot;setName&quot;</span>,String.class);</span><br><span class="line"><span class="comment">//通过 invoke() 方法来执行方法</span></span><br><span class="line">method.invoke(student,<span class="string">&quot;小明&quot;</span>);</span><br><span class="line">System.out.println(student);</span><br></pre></td></tr></table></figure>
-
-<h6 id="4-getDeclaredFields-获取参数"><a href="#4-getDeclaredFields-获取参数" class="headerlink" title="4.**getDeclaredFields()**获取参数"></a>4.**getDeclaredFields()**获取参数</h6><p>4.获取到类的所有成员变量 (不包括其父类的成员变量) <strong>getDeclaredFields()</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Class cls = Student.class;</span><br><span class="line"><span class="comment">//实例一个对象</span></span><br><span class="line">Constructor constructor = cls.getConstructor();</span><br><span class="line">Student student =(Student) constructor.newInstance();</span><br><span class="line"><span class="comment">//获取到这个类中所有的字段(获取非私有的成员变量)</span></span><br><span class="line">Field[] field = cls.getDeclaredFields(); </span><br><span class="line"><span class="comment">//将该类所有私有的属性全部强制转为公有</span></span><br><span class="line"><span class="keyword">for</span>(Field declaredField : field)&#123;</span><br><span class="line">    declaredField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//获取到这个对象中所有的字段的值</span></span><br><span class="line">    declaredField.get(student);</span><br><span class="line">    <span class="comment">//获取到这个对象中所有的字段名</span></span><br><span class="line">    declaredField.getName();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-            <div class='article_footer'>
-              
-                
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
-  <div class='content'>
-    
-      <blockquote>
-        
-          
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-          
-        
-          
-            <p>本文永久链接是：<a href=http://luoweikang.gitee.io/blog/2020/09/22/%E5%9F%BA%E6%9C%AC%E5%8F%8D%E5%B0%84/>http://luoweikang.gitee.io/blog/2020/09/22/%E5%9F%BA%E6%9C%AC%E5%8F%8D%E5%B0%84/</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode  desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
       
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-  </div>
-</section>
-
-  
-
-
-              
-            </div>
-          
+        <div>
+            <a class='readmore' href='/blog/2021/04/15/dubbo/'>
+            Read More
+          </a>
         </div>
-        
-          
-
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-22T16:49:11+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020-09-22 12:00</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://luoweikang.gitee.io/blog/2020/09/22/%E5%9F%BA%E6%9C%AC%E5%8F%8D%E5%B0%84/&title=Java反射基本用法 - 打不倒的怪兽&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://luoweikang.gitee.io/blog/2020/09/22/%E5%9F%BA%E6%9C%AC%E5%8F%8D%E5%B0%84/&title=Java反射基本用法 - 打不倒的怪兽&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://luoweikang.gitee.io/blog/2020/09/22/%E5%9F%BA%E6%9C%AC%E5%8F%8D%E5%B0%84/&title=Java反射基本用法 - 打不倒的怪兽&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
       
     </div>
-  </div>
-
-
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/blog/2021/04/04/elasticSearch/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
-                <p class='content'>ElasticSearch 学习文档简述   ElasticSearch 是由Doug Cutting 创建的分布式搜索引擎，底层是封装的 Lucene 的搜索引擎。Lucene  是用 Jav...</p>
-              </a>
-            
-            
-              <a class='next' href='/blog/2020/08/25/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/'>
-                <p class='title'>Lambda表达式<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>简述：​    java 8 提供的 Lambda 表达式 ，利用流和 Lambda 表达式对List集合进行处理。在开发的过程中，最重要的就是数据处理，而在java8以前，我们对List集合的...</p>
-              </a>
-            
-          </div>
-        
-      </section>
-    </article>
   
 
-  
-    
-
-  <article class="post white-box reveal comments shadow">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      <section id="comments">
-        <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-      </section>
-    </section>
-  </article>
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/04/04/elasticSearch/">
+        2021-04-04 12:00
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        ElasticSearch 学习文档简述   ElasticSearch 是由Doug Cutting 创建的分布式搜索引擎，底层是封装的 Lucene 的搜索引擎。Lucene  是用 Java 编写的。
+下载 ElasticSearch 服务地址：​        https://www.elastic.co/cn/downloads/?elektra=home&amp;storm=he...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        <time>2021-04-04</time>
+        
+      </div>
+      
+        <div>
+            <a class='readmore' href='/blog/2021/04/04/elasticSearch/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
 
+</div>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
+	
 </div>
 <aside class='l_side'>
   
   
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/blog/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">打不倒的怪兽</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/blog/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/volantis-x/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
 
   
     
     
 
+  
 
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+  
     
-  <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
 
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0%EF%BC%9A"><span class="toc-text">简述：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E7%9A%84class%E5%AF%B9%E8%B1%A1"><span class="toc-text">获取类的class对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">基本使用方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-getConstructor%EF%BC%88%EF%BC%89"><span class="toc-text">1.getConstructor（）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-newInstance"><span class="toc-text">2.newInstance()</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E6%89%A7%E8%A1%8C%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95-invoke"><span class="toc-text">3.执行类的方法  invoke()</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-getDeclaredFields-%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0"><span class="toc-text">4.**getDeclaredFields()**获取参数</span></a></li></ol></li></ol>
-    </div>
-  </section>
-
+  
 
   
 
 
 </aside>
 
+
+
+
+
+	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+	
+
+	
 
 
       </div>
